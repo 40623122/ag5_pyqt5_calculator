@@ -24,7 +24,7 @@ class Dialog(QDialog, Ui_Dialog):
         super(Dialog, self).__init__(parent)
         self.setupUi(self)
         '''以下為使用者自行編寫程式碼區'''
-        digits = [self.one, self.two,self.three, self.four, self.five, self.six, self.seven, self.eight, self.nine ]
+        digits = [self.zero, self.one, self.two,self.three, self.four, self.five, self.six, self.seven, self.eight, self.nine ]
         for i in digits:
             i.clicked.connect(self.digitClicked)
             
