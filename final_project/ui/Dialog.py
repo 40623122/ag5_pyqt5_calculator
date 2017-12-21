@@ -25,7 +25,9 @@ class Dialog(QDialog, Ui_Dialog):
         self.setupUi(self)
         '''以下為使用者自行編寫程式碼區'''
         self.display.setText('0')
-        digits = [self.zero, self.one, self.two,self.three, self.four, self.five, self.six, self.seven, self.eight, self.nine ]
+        digits = [self.zero, self.one, self.two,\
+        self.three, self.four, self.five, self.six, \
+        self.seven, self.eight, self.nine ]
         for i in digits:
             i.clicked.connect(self.digitClicked)
         self.clearAllButton.clicked.connect(self.clearAll)   
@@ -39,7 +41,9 @@ class Dialog(QDialog, Ui_Dialog):
         
         '''
         #pass
-        self.display.setText(self.sender().text())
+        clickedButton = self.sender()
+        digitValue = int(clickedButton.text())
+        self.display.setText(self.display.text() + str(digitValue))
         
 
     def unaryOperatorClicked(self):
