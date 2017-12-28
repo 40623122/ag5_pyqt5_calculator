@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from PyQt5.QtWidgets import QDialog
-from .Ui_Dialog import Ui_Dialog
 
 class Dialog(QDialog, Ui_Dialog):
     def __init__(self, parent=None):
@@ -16,8 +15,7 @@ class Dialog(QDialog, Ui_Dialog):
             i.clicked.connect(self.digitClicked)
         self.clearAllButton.clicked.connect(self.clearAll) 
         
-         # 按下小數點
-        self.pushButton_22.clicked.connect(self.pointClicked)
+        
 
 
         self.waitingForOperand = True
