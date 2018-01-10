@@ -58,6 +58,8 @@ class Dialog(QDialog, Ui_Dialog):
             button.clicked.connect(self.multiplicativeOperatorClicked)
         #等於按鈕連接函式
         self.equalButton.clicked.connect(self.equalClicked)
+        # 按下變號
+        self.pos_neg.clicked.connect(self.changeSignClicked)
     
 
     def digitClicked(self):
@@ -77,7 +79,7 @@ class Dialog(QDialog, Ui_Dialog):
             self.waitingForOperand = False
         #顯示數字
         self.display.setText(self.display.text() + str(digitValue))
-    
+        
     def clear(self):
         if self.waitingForOperand:
             return
@@ -372,3 +374,14 @@ class Dialog(QDialog, Ui_Dialog):
         self.display.setText(str(self.sumSoFar))
         self.sumSoFar = 0.0
         self.waitingForOperand = True
+        
+    def changeSignClicked(self):
+        text = self.display.text()
+        value = float(text)
+ 
+        if value > 0.0:
+            text = "-" + text
+        elif value < 0.0:
+            text = text[1:]
+ 
+        self.display.setText(text)
