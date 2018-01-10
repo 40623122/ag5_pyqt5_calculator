@@ -355,7 +355,7 @@ class Dialog(QDialog, Ui_Dialog):
         self.clearAll()
         self.display.setText("Nope!! Don't copy our calculator.")
     
-    def equalClicked(self):
+     def equalClicked(self):
         operand = float(self.display.text())
         if self.pendingMultiplicativeOperator:
             if not self.calculate(operand, self.pendingMultiplicativeOperator):
